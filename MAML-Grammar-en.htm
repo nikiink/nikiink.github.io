@@ -18,7 +18,7 @@
 
 
 <!-- ====== Section ====== -->
-<h2 id="maml-intro"><a href="#maml-intro" class="header-anchor">#</a>Introducing MAML</h2>
+<h2 id="maml-intro"><a href="#maml-intro" class="header-anchor">#</a>Introducing MAML <i>[10th Sept 2023] [TRANSLATION IN PROGRESS]</i></h2>
 <ul><li><p>MAML Engine scripting language<br>
 MIUI Application Markup Language for MORE (MIUI MORE engine application markup language)</p></li> <li><p>Introduction<br>
 It was originally used for the ever-changing lock screen, using xml to describe the lock screen interface with a specific syntax. Later, the functions were continuously enhanced, and gradually evolved into a set of near-universal interface description language and graphics rendering engine, which can be used to develop user interfaces with various styles under certain requirements. It is convenient to change the interface style, animation and even interaction mode by changing the skin.</p>
@@ -738,7 +738,7 @@ fontFamily      specifies the font, and the fonts that can be used are listed in
 
 
 <!-- ====== Section ====== -->
-<h2 id="add unlock"><a href="#add unlock" class="header-anchor">#</a>add unlock</h2>
+<h2 id="Add unlock"><a href="#Add unlock" class="header-anchor">#</a>Add unlock</h2>
 <p><strong>Swipe a distance with Button to unlock</strong></p>
 <p>Although the amount of code is more than Unlocker, it is actually simpler and easier to understand than Unlocker, and it brings possibilities for future expansion, such as making gestures that do not conflict with sliding left and right and sliding up to unlock.</p>
 <div class="language-xml extra-class">
@@ -808,49 +808,452 @@ If you don’t understand the variables, you can simply read them first in <a hr
 <!-- ====== Section ====== -->
 <h2 id="Text introduction">
 <a href="#Text introduction" class="header-anchor">#</a>Text introduction</h2>
-<p><strong>Text 文本</strong></p> <div class="language-xml extra-class">
+<p><strong>Text</strong></p> <div class="language-xml extra-class">
 <pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alignV</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>48<span class="token punctuation">&quot;</span></span> <span class="token attr-name">textExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>hello,world!'<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
 </code></pre>
 </div>
 
-<table><thead><tr><th style="text-align:left;">属性</th> <th style="text-align:center;">类型</th> <th style="text-align:center;">表达式/变量</th> <th style="text-align:left;">释义</th></tr></thead> <tbody><tr><td style="text-align:left;">x</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">相对于屏幕左上角的坐标</td></tr> <tr><td style="text-align:left;">y</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">相对于屏幕左上角的坐标</td></tr> <tr><td style="text-align:left;">color</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/o</td> <td style="text-align:left;">文字颜色,支持常量:#ffffff;支持字符串变量,@abc;支持函数 argb(255,255,255,255)(argb(透明度,红,绿,蓝) ,不支持表达式。</td></tr> <tr><td style="text-align:left;">size</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">文字大小</td></tr> <tr><td style="text-align:left;">bold</td> <td style="text-align:center;">boolean</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">粗体,true 表示加粗</td></tr> <tr><td style="text-align:left;">format</td> <td style="text-align:center;">string/numbe</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">paras中变量是数字类型用%d,是字符串类型用%s</td></tr> <tr><td style="text-align:left;">paras</td> <td style="text-align:center;">string/number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">如果指定了 format , 需要在 paras 里指定 %d和%d 对应的变量表达式, 可以有多个变量表达式用&quot;,&quot; 隔开</td></tr> <tr><td style="text-align:left;">text</td> <td style="text-align:center;">string/number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">文字显示内容,后续带有 Exp 的参数,都表示该参数支持 表达式</td></tr> <tr><td style="text-align:left;">textExp</td> <td style="text-align:center;">string/number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">文字显示内容表达式,可以直接调用变量等,示例:“现在时间是 9 点”,可以写成 textExp=&quot;'现在时间是'+#hour12+'点'&quot;</td></tr> <tr><td style="text-align:left;">width</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">文字宽度,当文字超过指定宽度时会被切掉。如果指定了多行显示,则会折行显示。如果指定了文字滚动,则会在指定的位置滚动显示文字</td></tr> <tr><td style="text-align:left;">marqueeSpeed</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">文字滚动速度,配合上面的宽度使用 marqueeSpeed=&quot;30&quot;</td></tr> <tr><td style="text-align:left;">marqueeGap</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">滚动间隔。当文字显示完后再次出现的间隔,默认为四个汉字的宽度</td></tr> <tr><td style="text-align:left;">rotation</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">旋转角度</td></tr> <tr><td style="text-align:left;">multiLine</td> <td style="text-align:center;">boolean</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">true/false 是否支持多行显示,默认 false。开启后支持换行符(&amp;#10;和\n)</td></tr> <tr><td style="text-align:left;">spacingMult</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">行距倍数 默认 1</td></tr> <tr><td style="text-align:left;">spacingAdd</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">行距增加量 默认 0</td></tr> <tr><td style="text-align:left;">shadowDx</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">水平方向的阴影相对文字的偏移距离</td></tr> <tr><td style="text-align:left;">shadowDy</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">竖直方向的阴影相对文字的偏移距离</td></tr> <tr><td style="text-align:left;">shadowRadius</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">阴影的模糊半径,可以实现模糊的阴影效果</td></tr> <tr><td style="text-align:left;">align</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">坐标点水平对齐方式 left, center, right</td></tr> <tr><td style="text-align:left;">alignV</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">坐标点垂直对齐方式 top, center, bottom</td></tr> <tr><td style="text-align:left;">shadowColor</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/o</td> <td style="text-align:left;">阴影的颜色,支持透明度</td></tr> <tr><td style="text-align:left;">alpha</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">不透明度 0 - 255</td></tr> <tr><td style="text-align:left;">visibility</td> <td style="text-align:center;">number/string</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">元素可见性支持 表达式 {=0 不可见,}0 可见</td></tr> <tr><td style="text-align:left;">text.text_width</td> <td style="text-align:center;">number</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">某行文本的宽度,可以用来排版</td></tr> <tr><td style="text-align:left;">fontFamily</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">支持指定系统字体;可查看: <a href="#%E5%8F%AF%E8%B0%83%E7%94%A8%E5%AD%97%E4%BD%93%E9%A2%84%E8%A7%88"><font color="#0055ff"><strong>可调用字体预览</strong></font></a></td></tr></tbody></table>
+<table>
+     <thead>
+         <tr>
+             <th style="text-align:left;">Attribute</th>
+             <th style="text-align:center;">Type</th>
+             <th style="text-align:center;">expression/variable</th>
+             <th style="text-align:left;">Description</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td style="text-align:left;">x</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Coordinates relative to the upper left corner of the screen</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">y</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Coordinates relative to the upper left corner of the screen</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">color</td>
+             <td style="text-align:center;">string</td>
+             <td style="text-align:center;">x/o</td>
+             <td style="text-align:left;">Text color, supports constants: #ffffff; supports string variables, @abc; supports function argb(255,255,255,255)(argb(transparency, red, green, blue), not supported Expression.</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">size</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Text size</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">bold</td>
+             <td style="text-align:center;">boolean</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Bold, true means bold</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">format</td>
+             <td style="text-align:center;">string/numbe</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">If the variable in paras is a numeric type, use %d, if it is a string type, use %s</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">paras</td>
+             <td style="text-align:center;">string/number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">If format is specified, the variable expressions corresponding to %d and %d need to be specified in paras. There can be multiple variable expressions separated by &quot;,&quot;< /td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">text</td>
+             <td style="text-align:center;">string/number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Text display content and subsequent parameters with Exp indicate that the parameter supports expression</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">textExp</td>
+             <td style="text-align:center;">string/number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Text display content expression, you can directly call variables, etc. For example: "The current time is 9 o'clock" can be written as textExp=&quot;'The current time is'+#hour12+' Click '&quot;</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">width</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Text width, when the text exceeds the specified width, it will be cut off. If multiple lines of display are specified, the lines will be displayed. If text scrolling is specified, the text will be scrolled and displayed at the specified position</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">marqueeSpeed</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Text scrolling speed, use marqueeSpeed=&quot;30&quot;</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">marqueeGap</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Scroll interval. The interval between when the text appears again after it is displayed, defaults to the width of four Chinese characters</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">rotation</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Rotation angle</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">multiLine</td>
+             <td style="text-align:center;">boolean</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">true/false Whether to support multi-line display, default false. Supports line breaks (&amp;#10; and \n) when enabled</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">spacingMult</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Line spacing multiple default 1</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">spacingAdd</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Line spacing increase default 0</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">shadowDx</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">The offset distance of the horizontal shadow relative to the text</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">shadowDy</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">The offset distance of the vertical shadow relative to the text</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">shadowRadius</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">The blur radius of the shadow can achieve a blurry shadow effect</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">align</td>
+             <td style="text-align:center;">string</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Horizontal alignment of coordinate points left, center, right</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">alignV</td>
+             <td style="text-align:center;">string</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Vertical alignment of coordinate points top, center, bottom</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">shadowColor</td>
+             <td style="text-align:center;">string</td>
+             <td style="text-align:center;">x/o</td>
+             <td style="text-align:left;">Shadow color, supports transparency</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">alpha</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Opacity 0 - 255</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">visibility</td>
+             <td style="text-align:center;">number/string</td>
+             <td style="text-align:center;">o/o</td>
+             <td style="text-align:left;">Element visibility supports the expression {=0 invisible,}0 visible</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">text.text_width</td>
+             <td style="text-align:center;">number</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">The width of a certain line of text can be used for typesetting</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">fontFamily</td>
+             <td style="text-align:center;">string</td>
+             <td style="text-align:center;">x/x</td>
+             <td style="text-align:left;">Supports specified system fonts; view: <a href="#Font preview">
+                     <font color="#0055ff">
+                         <strong>Font preview available</strong>
+                     </font>
+                 </a>
+             </td>
+         </tr>
+     </tbody>
+</table>
 
-<blockquote><p>注意:</p> <ul><li>文字在 表达式 中需要用单引号引用,数字变量和字符串变量 则不需要;如:'hello,world!',@abc,#num;</li> <li>alpha 值可以写一个简单的表达式;如 alpha=&quot;255 * 0.8&quot; 或 alpha=&quot;2.55 * 80&quot;,都表示 80% 的不透明度</li> <li>visibility 支持 表达式 {=0 不可见,}0 可见;即使值为 0.00001 也可见,总之大于 0 就可见</li></ul></blockquote> <br> <p>几个实例:</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">shadowDx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>3<span class="token punctuation">&quot;</span></span> <span class="token attr-name">shadowDy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>4<span class="token punctuation">&quot;</span></span> <span class="token attr-name">shadowRadius</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>6<span class="token punctuation">&quot;</span></span> <span class="token attr-name">shadowColor</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#9c000000<span class="token punctuation">&quot;</span></span> <span class="token attr-name">...</span><span class="token punctuation">/&gt;</span></span>
+<blockquote><p>Notice:</p>
+  <ul>
+    <li>Literals need to be quoted in single quotes in expressions, but numeric variables and string variables do not need to be; such as: 'hello, world!', @abc, #num;</li>
+    <li>The alpha value can be written as a simple expression; such as alpha=&quot;255 * 0.8&quot; or alpha=&quot;2.55 * 80&quot;, both representing 80% opacity</li>
+    <li>visibility supports the expression {=0 invisible, }0 visible; even if the value is 0.00001, it is visible, in short, it is visible if it is greater than 0</li>
+  </ul>
+</blockquote>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tt<span class="token punctuation">&quot;</span></span> <span class="token attr-name">...</span><span class="token punctuation">/&gt;</span></span>   //#tt.text_width为此文本的长度
+<br> <p>A few examples:</p>
+<div class="language-xml extra-class">
+<pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">shadowDx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>3<span class="token punctuation">&quot;</span></span> <span class="token attr-name">shadowDy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>4<span class="token punctuation">&quot;</span></span> <span class="token attr-name">shadowRadius</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>6<span class="token punctuation">&quot;</span></span> <span class="token attr-name">shadowColor</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#9c000000<span class="token punctuation">&quot;</span></span> <span class="token attr-name">...</span><span class="token punctuation">/&gt;</span></span>
 
-显示下一个闹钟时间
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tt<span class="token punctuation">&quot;</span></span> <span class="token attr-name">...</span><span class="token punctuation">/&gt;</span></span>   //#tt.text_width is the length of this text
+
+Show next alarm time
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>@next_alarm_time<span class="token punctuation">&quot;</span></span> <span class="token attr-name">...</span><span class="token punctuation">/&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>下一个闹钟:[%s] 电池:[%d%%]<span class="token punctuation">&quot;</span></span> <span class="token attr-name">paras</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>@next_alarm_time,#battery_level<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
-</code></pre></div><ul><li>显示当前时间</li></ul> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>48<span class="token punctuation">&quot;</span></span> <span class="token attr-name">textExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>现在时间是'+#hour12+'点'<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
-</code></pre></div><p>或者</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>48<span class="token punctuation">&quot;</span></span> <span class="token attr-name">textExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>当前温度'+#weather_temperature+'°'<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
-</code></pre></div><blockquote><p>#hour12 为系统全局变量,传递当前小时数给 maml,#weather_temperature 为天气接口获取到的当前温度,后面会讲到</p></blockquote> <br> <ul><li>文字滚动</li></ul> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">marqueeSpeed</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>30<span class="token punctuation">&quot;</span></span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>永远相信美好的事情即将发生<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
-</code></pre></div><h4 id="可调用字体预览"><a href="#可调用字体预览" class="header-anchor">#</a> 可调用字体预览</h4> <table><thead><tr><th style="text-align:left;"><font color="#0055ff">Mitype</font>:仅支持数字类型</th> <th style="text-align:left;">样式</th> <th style="text-align:left;">小米兰亭<font color="#E7333D">Pro</font>:支持中文/英文/数字类型</th> <th style="text-align:left;">样式</th></tr></thead> <tbody><tr><td style="text-align:left;">mitype-thin</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:100;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-thin</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:100;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-extralight</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:200;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-extralight</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:200;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-light</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:300;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-light</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:300;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-normal</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:400;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-normal</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:400;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-regular</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:450;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-regular</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:450;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-medium</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:500;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-medium</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:500;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-demibold</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:600;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-demibold</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:600;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-semibold</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:650;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-semibold</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:650;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-bold</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:700;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-bold</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:700;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-heavy</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:900;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-heavy</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:900;font-size:24px;">0123456789:%+-×÷</font></td></tr></tbody></table> <br> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Next alarm: [%s] Battery: [%d%%]<span class="token punctuation">&quot;</span></span> <span class="token attr-name">paras</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>@next_alarm_time,#battery_level<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre></div>
+<ul><li>show current time</li></ul>
+<div class="language-xml extra-class">
+<pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>48<span class="token punctuation">&quot;</span></span> <span class="token attr-name">textExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>The current time is '+#hour12<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre></div>
+<p>or</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>48<span class="token punctuation">&quot;</span></span> <span class="token attr-name">textExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>Current Temperature '+#weather_temperature+'°'<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre></div>
+<blockquote><p>#hour12 As a system global variable, pass the current hour to maml,#weather_temperature The current temperature obtained for the weather interface, which will be discussed later/p></blockquote> <br> <ul><li>text scrolling</li></ul> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>50<span class="token punctuation">&quot;</span></span> <span class="token attr-name">marqueeSpeed</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>30<span class="token punctuation">&quot;</span></span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Always believe that good things are about to happen<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre></div>
+<h4 id="Font preview"><a href="#Callable font preview"  class="header-anchor">#</a>Callable font preview</h4> <table><thead><tr><th style="text-align:left;">
+<font color="#0055ff">Mitype</font>: only supports numeric types</th>
+<th style="text-align:left;">style</th> <th style="text-align:left;">Xiaomilanting font <font color="#E7333D">Pro</font>: supports Chinese/English/numeric types</th> <th style="text-align:left;">style</th></tr></thead> <tbody><tr><td style="text-align:left;">mitype-thin</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:100;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-thin</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:100;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-extralight</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:200;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-extralight</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:200;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-light</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:300;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-light</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:300;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-normal</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:400;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-normal</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:400;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-regular</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:450;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-regular</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:450;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-medium</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:500;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-medium</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:500;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-demibold</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:600;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-demibold</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:600;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-semibold</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:650;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-semibold</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:650;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-bold</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:700;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-bold</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:700;font-size:24px;">0123456789:%+-×÷</font></td></tr> <tr><td style="text-align:left;">mitype-heavy</td> <td style="text-align:left;"><font style="font-family:MiType-Mono;font-weight:900;font-size:24px;">0123456789:%+-×÷</font></td> <td style="text-align:left;">mipro-heavy</td> <td style="text-align:left;"><font style="font-family:MI Lan Pro;font-weight:900;font-size:24px;">0123456789:%+-×÷</font></td></tr></tbody></table> <br> 
 
 
 
 <!-- ====== Section ====== -->
-<h2 id="时间日期"><a href="#时间日期" class="header-anchor">#</a> 时间日期</h2> <p><strong>时间</strong></p> <p>这里说的时间,其实是由 10 个数字图片加“:”号图片依时间格式组成的图片组合。</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!--图片类写法--&gt;</span>
+<h2 id="Dates and time"><a href="#Dates and time" class="header-anchor">#</a>Dates and time</h2>
+<p><strong>Time</strong></p> <p>The time mentioned here is actually a picture combination composed of 10 digital pictures plus ":" pictures according to the time format.</p>
+<div class="language-xml extra-class">
+<pre class="language-xml"><code><span class="token comment">&lt;!--picture class writing--&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Time</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>400<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alignV</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>time.png<span class="token punctuation">&quot;</span></span> <span class="token attr-name">space</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>HH:mm<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
-<span class="token comment">&lt;!--文本类写法--&gt;</span>
+<span class="token comment">&lt;!--text style--&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>400<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alignV</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">formatExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ifelse(#time_format,'HH:mm','h:mm')<span class="token punctuation">&quot;</span></span> <span class="token attr-name">fontFamily</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>mitype-light<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
-</code></pre></div><p>src 表示时间图片的前缀,如下表示使用 time_0.png, time_1.png, ... time_9.png, time_dot.png 坐标属性支持变量表达式<br>
-space 表示时间图片的间隙,我们可以使用这个功能来对时间图片进行排版,使用正值时图片间距变大,这时可以将图片切小,节省内存。对于有投影的图片,将 space 写成负值,可以使投影重叠以节省空间</p> <div id="__Date"></div> <h4 id="日期格式"><a href="#日期格式" class="header-anchor">#</a> 日期格式</h4> <div class="language-xml extra-class"><pre class="language-xml"><code>显示指定格式的日期:
-    formatExp:  支持日期表达式格式(formatExp=&quot;ifelse(#time_format,'HH:mm','h:mm')&quot;)
-    format:     支持标准日期格式(format=&quot;HH:mm&quot;)
-</code></pre></div><p>Text 与 DateTime 的区别
-DateTime 主要用于快速格式化显示时间,支持 Text 的所有参数,DateTime 直接用下列参数显示不同的时间参数。
-<br></p> <table><thead><tr><th style="text-align:left;">代码</th> <th style="text-align:left;">释义</th> <th style="text-align:left;">示例可能出现的结果</th></tr></thead> <tbody><tr><td style="text-align:left;">A</td> <td style="text-align:left;">十二生肖年</td> <td style="text-align:left;">鼠、牛、羊</td></tr> <tr><td style="text-align:left;">G</td> <td style="text-align:left;">公元</td> <td style="text-align:left;">公元</td></tr> <tr><td style="text-align:left;">Y</td> <td style="text-align:left;">汉字年(农历)</td> <td style="text-align:left;">二〇一五</td></tr> <tr><td style="text-align:left;">YY</td> <td style="text-align:left;">干支年</td> <td style="text-align:left;">甲子</td></tr> <tr><td style="text-align:left;">yy</td> <td style="text-align:left;">数字年(2 位)</td> <td style="text-align:left;">20</td></tr> <tr><td style="text-align:left;">yyyy</td> <td style="text-align:left;">数字年</td> <td style="text-align:left;">2020</td></tr> <tr><td style="text-align:left;">M</td> <td style="text-align:left;">月</td> <td style="text-align:left;">1</td></tr> <tr><td style="text-align:left;">MM</td> <td style="text-align:left;">月( 1 - 9 月加 0)</td> <td style="text-align:left;">01</td></tr> <tr><td style="text-align:left;">MMM</td> <td style="text-align:left;">月(汉字)</td> <td style="text-align:left;">九</td></tr> <tr><td style="text-align:left;">MMMM</td> <td style="text-align:left;">完整月(汉字)</td> <td style="text-align:left;">九月</td></tr> <tr><td style="text-align:left;">N</td> <td style="text-align:left;">农历月</td> <td style="text-align:left;">正,二,三</td></tr> <tr><td style="text-align:left;">NN</td> <td style="text-align:left;">干支月</td> <td style="text-align:left;">乙丑</td></tr> <tr><td style="text-align:left;">NNNN</td> <td style="text-align:left;">农历完整日期+节气</td> <td style="text-align:left;">八月廿八 秋分(只适用于DateTime)</td></tr> <tr><td style="text-align:left;">D</td> <td style="text-align:left;">一年中的第几天</td> <td style="text-align:left;">168</td></tr> <tr><td style="text-align:left;">d</td> <td style="text-align:left;">数字日</td> <td style="text-align:left;">23</td></tr> <tr><td style="text-align:left;">e</td> <td style="text-align:left;">农历日</td> <td style="text-align:left;">初三</td></tr> <tr><td style="text-align:left;">ee</td> <td style="text-align:left;">干支日</td> <td style="text-align:left;">丙寅</td></tr> <tr><td style="text-align:left;">t</td> <td style="text-align:left;">二十四节气</td> <td style="text-align:left;">冬至</td></tr> <tr><td style="text-align:left;">E</td> <td style="text-align:left;">星期</td> <td style="text-align:left;">周三</td></tr> <tr><td style="text-align:left;">EEEE</td> <td style="text-align:left;">星期</td> <td style="text-align:left;">星期三</td></tr> <tr><td style="text-align:left;">EEEEE</td> <td style="text-align:left;">星期</td> <td style="text-align:left;">三</td></tr> <tr><td style="text-align:left;">H</td> <td style="text-align:left;">24 小时制</td> <td style="text-align:left;">0~23</td></tr> <tr><td style="text-align:left;">h</td> <td style="text-align:left;">12 小时制</td> <td style="text-align:left;">0~12</td></tr> <tr><td style="text-align:left;">I</td> <td style="text-align:left;">时辰地支</td> <td style="text-align:left;">酉</td></tr> <tr><td style="text-align:left;">II</td> <td style="text-align:left;">时辰地支</td> <td style="text-align:left;">丁酉</td></tr> <tr><td style="text-align:left;">m</td> <td style="text-align:left;">分钟</td> <td style="text-align:left;">6</td></tr> <tr><td style="text-align:left;">mm</td> <td style="text-align:left;">分钟(两位)</td> <td style="text-align:left;">06</td></tr> <tr><td style="text-align:left;">s</td> <td style="text-align:left;">秒</td> <td style="text-align:left;">6</td></tr> <tr><td style="text-align:left;">ss</td> <td style="text-align:left;">秒</td> <td style="text-align:left;">06</td></tr> <tr><td style="text-align:left;">S</td> <td style="text-align:left;">豪秒</td> <td style="text-align:left;">666</td></tr> <tr><td style="text-align:left;">a</td> <td style="text-align:left;">上下午</td> <td style="text-align:left;">上午,下午</td></tr> <tr><td style="text-align:left;">aa</td> <td style="text-align:left;">上下午(详细)</td> <td style="text-align:left;">上午,下午,傍晚,凌晨,晚上</td></tr> <tr><td style="text-align:left;">Z/ZZ/ZZZ</td> <td style="text-align:left;">时区</td> <td style="text-align:left;">+0800</td></tr> <tr><td style="text-align:left;">ZZZZ</td> <td style="text-align:left;">时区</td> <td style="text-align:left;">GMT+08:00</td></tr> <tr><td style="text-align:left;">ZZZZZ</td> <td style="text-align:left;">时区</td> <td style="text-align:left;">08:00</td></tr> <tr><td style="text-align:left;">zzzz</td> <td style="text-align:left;">时区</td> <td style="text-align:left;">中国标准时间</td></tr></tbody></table> <br> <p>DateTime 实例</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- 二〇一五年八月初十23时42分(农历) --&gt;</span>
+</code></pre></div>
+
+<p>src represents the prefix of the time picture, as shown below, use time_0.png, time_1.png, ... time_9.png, time_dot.png. The coordinate attribute supports variable expressions<br>
+space represents the gap between time pictures. We can use this function to layout time pictures. When using positive values, the distance between pictures becomes larger. At this time, the pictures can be cut into smaller sizes to save memory. For images with projections, write space as a negative value to overlap the projections to save space</p>
+
+<div id="__Date"></div> <h4 id="Date format">
+<a href="#Date format" class="header-anchor">#</a>Date format</h4>
+<div class="language-xml extra-class">
+<pre class="language-xml"><code>Display date in specified format:
+    formatExp:  supports date expression format (formatExp=&quot;ifelse(#time_format,'HH:mm','h:mm')&quot;)
+    format:     supports standard date format (format=&quot;HH:mm&quot;)
+</code></pre>
+</div>
+<p>Difference between Text and DateTime: 
+DateTime is mainly used to display time in quick format and supports all parameters of Text.
+DateTime directly uses the following parameters to display different time parameters.
+<br></p>
+
+<font color="#E7333D">[NOTE: VERIFY EXAMPLES THAT OUTPUTS IN CHINESE]</font>
+<table>
+     <thead>
+         <tr>
+             <th style="text-align:left;">Code</th>
+             <th style="text-align:left;">Definition</th>
+             <th style="text-align:left;">Example possible results</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td style="text-align:left;">A</td>
+             <td style="text-align:left;">Twelve Zodiac Years</td>
+             <td style="text-align:left;">Rat, cow, sheep</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">G</td>
+             <td style="text-align:left;">AD</td>
+             <td style="text-align:left;">AD</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">Y</td>
+             <td style="text-align:left;">Chinese Character Year (Lunar Calendar)</td>
+             <td style="text-align:left;">二〇一五</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">YY</td>
+             <td style="text-align:left;">Year of Ganzhi</td>
+             <td style="text-align:left;">Jia Zi</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">yy</td>
+             <td style="text-align:left;">Numerical year (2 digits)</td>
+             <td style="text-align:left;">20</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">yyyy</td>
+             <td style="text-align:left;">Digital Year</td>
+             <td style="text-align:left;">2020</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">M</td>
+             <td style="text-align:left;">Month</td>
+             <td style="text-align:left;">1</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">MM</td>
+             <td style="text-align:left;">Month (1 - 9 plus 0)</td>
+             <td style="text-align:left;">01</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">MMM</td>
+             <td style="text-align:left;">Month (Chinese character)</td>
+             <td style="text-align:left;">九</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">MMMM</td>
+             <td style="text-align:left;">Full month (Chinese characters)</td>
+             <td style="text-align:left;">九月</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">N</td>
+             <td style="text-align:left;">Lunar month</td>
+             <td style="text-align:left;">right, two, three</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">NN</td>
+             <td style="text-align:left;">Stem and Branch Month</td>
+             <td style="text-align:left;">Yichou</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">NNNN</td>
+             <td style="text-align:left;">Complete lunar calendar date + solar terms</td>
+             <td style="text-align:left;">August 28 Autumnal Equinox (only applicable to DateTime)</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">D</td>
+             <td style="text-align:left;">Day of the year</td>
+             <td style="text-align:left;">168</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">d</td>
+             <td style="text-align:left;">Digital Day</td>
+             <td style="text-align:left;">23</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">e</td>
+             <td style="text-align:left;">Lunar calendar day</td>
+             <td style="text-align:left;">Third grade</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">ee</td>
+             <td style="text-align:left;">Stem and Support Day</td>
+             <td style="text-align:left;">Bingyin</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">t</td>
+             <td style="text-align:left;">Twenty-four solar terms</td>
+             <td style="text-align:left;">Winter Solstice</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">E</td>
+             <td style="text-align:left;">Day of the week</td>
+             <td style="text-align:left;">Wed</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">EEEE</td>
+             <td style="text-align:left;">Day of the week</td>
+             <td style="text-align:left;">Wednesday</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">EEEEE</td>
+             <td style="text-align:left;">Day of the week</td>
+             <td style="text-align:left;">三</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">H</td>
+             <td style="text-align:left;">24-hour clock</td>
+             <td style="text-align:left;">0~23</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">h</td>
+             <td style="text-align:left;">12-hour clock</td>
+             <td style="text-align:left;">0~12</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">I</td>
+             <td style="text-align:left;">Time and Earthly Branches</td>
+             <td style="text-align:left;">Unitary</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">II</td>
+             <td style="text-align:left;">Time and Earthly Branches</td>
+             <td style="text-align:left;">Ding You</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">m</td>
+             <td style="text-align:left;">minutes</td>
+             <td style="text-align:left;">6</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">mm</td>
+             <td style="text-align:left;">minutes (two digits)</td>
+             <td style="text-align:left;">06</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">s</td>
+             <td style="text-align:left;">seconds</td>
+             <td style="text-align:left;">6</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">ss</td>
+             <td style="text-align:left;">Seconds</td>
+             <td style="text-align:left;">06</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">S</td>
+             <td style="text-align:left;">Hao seconds</td>
+             <td style="text-align:left;">666</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">a</td>
+             <td style="text-align:left;">Morning and afternoon</td>
+             <td style="text-align:left;">Morning, Afternoon</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">aa</td>
+             <td style="text-align:left;">Morning and afternoon (details)</td>
+             <td style="text-align:left;">Morning, afternoon, evening, early morning, night</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">Z/ZZ/ZZZ</td>
+             <td style="text-align:left;">Time zone</td>
+             <td style="text-align:left;">+0800</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">ZZZZ</td>
+             <td style="text-align:left;">Time zone</td>
+             <td style="text-align:left;">GMT+08:00</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">ZZZZZ</td>
+             <td style="text-align:left;">Time zone</td>
+             <td style="text-align:left;">08:00</td>
+         </tr>
+         <tr>
+             <td style="text-align:left;">zzzz</td>
+             <td style="text-align:left;">Time zone</td>
+             <td style="text-align:left;">China Standard Time</td>
+         </tr>
+     </tbody>
+</table>
+
+<br>
+<p>DateTime examples</p>
+<div class="language-xml extra-class">
+<pre class="language-xml"><code><span class="token comment">&lt;!-- 23:42 on the 10th day of August, 2015 (lunar calendar)--&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>20<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>450<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#000000<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>40<span class="token punctuation">&quot;</span></span> <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Y年N月eH时m分<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
-<span class="token comment">&lt;!-- 今天日期:2020年09月15日 --&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>400<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alignV</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">formatExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>今天日期:yyyy年MM月dd日'<span class="token punctuation">&quot;</span></span>  <span class="token punctuation">/&gt;</span></span>
-</code></pre></div><p>DateTime 可指定 value 值,当不指定时默认以当前时间戳来计算时间,当指定时间戳时,会按照指定的时间戳来计算时间</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>400<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alignV</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">formatExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>明天日期:yyyy年MM月dd日'<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#time_sys+86400000<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token comment">&lt;!-- Today's date: 2020年09月15日 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>400<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alignV</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">formatExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>Today's date: yyyy年MM月dd日'<span class="token punctuation">&quot;</span></span>  <span class="token punctuation">/&gt;</span></span>
+</code></pre></div><p>DateTime can specify a value value. If not specified, the time will be calculated based on the current timestamp. When a timestamp is specified, the time will be calculated based on the specified timestamp.</p>
+<div class="language-xml extra-class"><pre class="language-xml"><code>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>400<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alignV</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ffffff<span class="token punctuation">&quot;</span></span> <span class="token attr-name">formatExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>Tomorrow date: yyyy年MM月dd日'<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#time_sys+86400000<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
 </code></pre></div><br> 
 
 
 
 <!-- ====== Section ====== -->
-<h2 id="组的运用"><a href="#组的运用" class="header-anchor">#</a> 组的运用</h2> <p><strong>Group</strong></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Group</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">clip</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">layered</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">visibility</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<h2 id="Use of groups"><a href="#Use of groups" class="header-anchor">#</a>Use of groups</h2> <p><strong>Group</strong></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Group</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">clip</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">layered</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">visibility</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PositionAnimation</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SizeAnimation</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span><span class="token punctuation">/&gt;</span></span>
@@ -858,10 +1261,21 @@ DateTime 主要用于快速格式化显示时间,支持 Text 的所有参数,Dat
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span><span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Group</span><span class="token punctuation">&gt;</span></span>
-</code></pre></div><div class="language-xml extra-class"><pre class="language-xml"><code>Group       组的意思,相当于一个容器,用来包含住其他元素,如图片,时间,控件……等
-            可理解为一个图层,能便捷地调整内部多个元素的位置和大小,与Image一样添加各种动画,内部元素的坐标是相对坐标(相对于组坐标)
-clip        true/false,为true时,会裁剪掉超出w h标注范围的内容,不给予显示(有clip与layered时,必须添加w h)
-</code></pre></div><p><strong>AutoScaleGroup</strong></p> <p>新增加一个AutoScaleGroup元素,继承于Group元素,区别在于AutoScaleGroup元素会记录下初始的w和h,当后面w或h有变化的时候按比例做scale <font color="#ff0000">MIUI12.5新增</font></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AutoScaleGroup</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">clip</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">layered</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">visibility</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-xml extra-class">
+<pre class="language-xml"><code>Group       means a container, used to contain other elements, such as pictures, time, controls, etc.
+            It can be understood as a layer, which can easily adjust the position and size of multiple internal elements,
+            and add various animations like Image. The coordinates of internal elements are relative coordinates 
+            (relative to group coordinates)
+clip        true/false, when it is true, the content beyond the w h mark range will be cropped and will not be displayed
+            (when there is clip and layered, w h must be added)
+</code></pre></div>
+
+<p><strong>AutoScaleGroup</strong></p>
+<p>A new AutoScaleGroup element is added, which is inherited from the Group element. The difference is that the AutoScaleGroup element will record the initial w and h. When w or h changes later,
+ the scale will be done proportionally. <font color="#ff0000">Since MIUI12.5</font></p>
+
+<div class="language-xml extra-class">
+<pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AutoScaleGroup</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">clip</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">layered</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span> <span class="token attr-name">visibility</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PositionAnimation</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SizeAnimation</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span><span class="token punctuation">/&gt;</span></span>
@@ -869,7 +1283,11 @@ clip        true/false,为true时,会裁剪掉超出w h标注范围的内容,不
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DateTime</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span><span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AutoScaleGroup</span><span class="token punctuation">&gt;</span></span>
-</code></pre></div><p><strong>组命令</strong></p> <p>如果某组操作会被很多处调用,可以将这组操作写到一个空的 Group 中作为一个 trigger action,然后可以被多处调用。</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- 组命令 --&gt;</span>
+</code></pre></div>
+
+<p><strong>Group command</strong></p>
+<p>If a certain group of operations will be called in many places, you can write this group of operations into an empty Group as a trigger action, and then it can be called in many places.</p>
+<div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- group command --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Group</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>triggersContainer<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Triggers</span><span class="token punctuation">&gt;</span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Trigger</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>content_1<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>
@@ -881,7 +1299,7 @@ clip        true/false,为true时,会裁剪掉超出w h标注范围的内容,不
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Trigger</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Triggers</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Group</span><span class="token punctuation">&gt;</span></span>
-<span class="token comment">&lt;!-- 执行组命令 --&gt;</span>
+<span class="token comment">&lt;!-- Execute group commands --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>540<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Triggers</span><span class="token punctuation">&gt;</span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Trigger</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>up<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
@@ -890,19 +1308,24 @@ clip        true/false,为true时,会裁剪掉超出w h标注范围的内容,不
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Trigger</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Triggers</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">&gt;</span></span>
-</code></pre></div><br> <p><strong>自定义函数</strong></p> <p>增加函数元素,作为函数式调用 <font color="#ff0000">MIUI12.5新增</font></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!--Function为仿照函数的元素, 包含各种ActionCommand--&gt;</span>
+</code></pre>
+</div><br>
+
+<p><strong>Custom function</strong></p> <p>Add function elements as functional calls. <font color="#ff0000">Since MIUI12.5</font></p>
+<div class="language-xml extra-class">
+<pre class="language-xml"><code><span class="token comment">&lt;!--Function is an element that imitates a function and contains various ActionCommands.--&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Function</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>XXXX<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>VariableCommand</span> <span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>XXXXCommand</span><span class="token punctuation">/&gt;</span></span>
-    <span class="token comment">&lt;!-- 条件执行命令 子元素Consequent和Alternate --&gt;</span>
+    <span class="token comment">&lt;!-- Conditional execution command sub-elements Consequent (if) and Alternate (else) --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IfCommand</span> <span class="token attr-name">ifCondition</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>XXXX<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token comment">&lt;!-- Consequent 满足ifCondition执行 --&gt;</span>
+        <span class="token comment">&lt;!-- Consequent execution when ifCondition is satisfied --&gt;</span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Consequent</span><span class="token punctuation">&gt;</span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>VariableCommand</span> <span class="token punctuation">/&gt;</span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AnimationCommand</span> <span class="token punctuation">/&gt;</span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>XXXXCommand</span><span class="token punctuation">/&gt;</span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Consequent</span><span class="token punctuation">&gt;</span></span>
-        <span class="token comment">&lt;!-- Alternate 不满足ifCondition执行 --&gt;</span>
+        <span class="token comment">&lt;!-- Alternate Execution when ifCondition is not met --&gt;</span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Alternate</span><span class="token punctuation">&gt;</span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>VariableCommand</span> <span class="token punctuation">/&gt;</span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AnimationCommand</span> <span class="token punctuation">/&gt;</span></span>
@@ -910,14 +1333,14 @@ clip        true/false,为true时,会裁剪掉超出w h标注范围的内容,不
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Alternate</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IfCommand</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Function</span><span class="token punctuation">&gt;</span></span>
-<span class="token comment">&lt;!-- 增加一个command 用来调用Function --&gt;</span>
+<span class="token comment">&lt;!-- Add a command to call the Function --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FunctionCommand</span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>XXX<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
 </code></pre></div>
 
 
 
 <!-- ====== Section ====== -->
-<h2 id="图片"><a href="#图片" class="header-anchor">#</a> 图片</h2> <p>图片部件用来在锁屏界面上显示一个图片,可以指定各种属性</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">pivotX</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">pivotY</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">rotation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">srcid</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">alpha</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">antiAlias</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">visibility</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<h2 id="Images"><a href="#Images" class="header-anchor">#</a>Images</h2> <p>图片部件用来在锁屏界面上显示一个图片,可以指定各种属性</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">pivotX</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">pivotY</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">rotation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">srcid</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">alpha</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">antiAlias</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">visibility</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">pivotX</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">pivotY</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">pivotZ</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">rotationX</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">rotationY</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">rotationZ</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
 </code></pre></div><table><thead><tr><th style="text-align:left;">属性</th> <th style="text-align:center;">类型</th> <th style="text-align:center;">表达式/变量</th> <th style="text-align:left;">释义</th></tr></thead> <tbody><tr><td style="text-align:left;">x,y</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">相对于屏幕左上角的坐标</td></tr> <tr><td style="text-align:left;">w,h</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">宽和高</td></tr> <tr><td style="text-align:left;">pivotX,pivotY</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">旋转中心</td></tr> <tr><td style="text-align:left;">rotation</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">旋转角度,一周 360 度</td></tr> <tr><td style="text-align:left;">rotationX</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">X 轴旋转角度,一周 360 度</td></tr> <tr><td style="text-align:left;">rotationY</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">Y 轴旋转角度,一周 360 度</td></tr> <tr><td style="text-align:left;">rotationZ</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">Z 轴旋转角度,一周 360 度</td></tr> <tr><td style="text-align:left;">src</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">图片名称路径</td></tr> <tr><td style="text-align:left;">srcid</td> <td style="text-align:center;">number/string</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">图片序列后缀数字,一般用变量表示,可以根据变量显示不同的图片,如果 src=&quot;pic.png&quot; srcid=&quot;1&quot;则最后会显示图片&quot;pic_1.png&quot;</td></tr> <tr><td style="text-align:left;">alpha</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">透明度 0-255,小于等于 0 不显示</td></tr> <tr><td style="text-align:left;">antiAlias</td> <td style="text-align:center;">boolean</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">true/false 抗锯齿,如果为 true 图片在变形旋转时不会有锯齿,但是速度会慢</td></tr> <tr><td style="text-align:left;">srcExp</td> <td style="text-align:center;">number/string</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">图片源表达式</td></tr> <tr><td style="text-align:left;">srcFormat</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">图片源格式 srcParas中是number类型用%d,是string类型用%s</td></tr> <tr><td style="text-align:left;">srcForamtExp</td> <td style="text-align:center;">number/string</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">图片源格式表达式</td></tr> <tr><td style="text-align:left;">srcParas</td> <td style="text-align:center;">number/string</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">图片源参数,多个参数用,分隔</td></tr> <tr><td style="text-align:left;">visibility</td> <td style="text-align:center;">number</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">支持表达式,大于 0 时则显示</td></tr> <tr><td style="text-align:left;">align/alignV</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/x</td> <td style="text-align:left;">对齐方式</td></tr> <tr><td style="text-align:left;">tint</td> <td style="text-align:center;">string</td> <td style="text-align:center;">x/o</td> <td style="text-align:left;">色调(染色);<code>tint=&quot;#ffff0000&quot;</code> <font color="#ff0000">MIUI12 新增</font> 支持变量不支持表达式。</td></tr> <tr><td style="text-align:left;">tintmode</td> <td style="text-align:center;">int</td> <td style="text-align:center;">o/o</td> <td style="text-align:left;">色调(染色)混合模式,需要与tint一起使用,效果同图片混合xfermodeNum一致。默认<code>tintmode=&quot;5&quot;</code> <font color="#ff0000">MIUI12 新增</font> 支持变量。</td></tr></tbody></table> <p>图片的几个应用实例:</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>100<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">srcExp</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>weather/weather_' + #weather_id + '.png'<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
 </code></pre></div><div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>100<span class="token punctuation">&quot;</span></span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>center<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>weather/weather.png<span class="token punctuation">&quot;</span></span> <span class="token attr-name">srcid</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#weather_id<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
@@ -930,7 +1353,7 @@ clip        true/false,为true时,会裁剪掉超出w h标注范围的内容,不
 
 
 <!-- ====== Section ====== -->
-<h2 id="图片混合"><a href="#图片混合" class="header-anchor">#</a> 图片混合</h2> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- 例子:(使用时,混合范围要尽可能小,否则会卡) --&gt;</span>
+<h2 id="Images overlay"><a href="#Images overlay" class="header-anchor">#</a>Images overlay</h2> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token comment">&lt;!-- 例子:(使用时,混合范围要尽可能小,否则会卡) --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Group</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">layered</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>test.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>mask.png<span class="token punctuation">&quot;</span></span> <span class="token attr-name">xfermode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dst_in<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
@@ -950,7 +1373,7 @@ xfermodeNum     混合模式支持变量表达式。表达式的取值对应一�
 
 
 <!-- ====== Section ====== -->
-<h2 id="笔刷"><a href="#笔刷" class="header-anchor">#</a> 笔刷</h2> <p>笔刷绝对是一个很神奇的功能,与混合功能搭配,可以做出刮奖、擦玻璃的效果</p> <p>笔刷代码:</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Paint</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1080<span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1920<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ff6600<span class="token punctuation">&quot;</span></span> <span class="token attr-name">weight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>40<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<h2 id="笔刷"><a href="#笔刷" class="header-anchor">#</a> 笔刷 The Brush??</h2> <p>笔刷绝对是一个很神奇的功能,与混合功能搭配,可以做出刮奖、擦玻璃的效果</p> <p>笔刷代码:</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Paint</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1080<span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1920<span class="token punctuation">&quot;</span></span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>#ff6600<span class="token punctuation">&quot;</span></span> <span class="token attr-name">weight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>40<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
 </code></pre></div><table><thead><tr><th style="text-align:left;">属性</th> <th style="text-align:left;">释义</th></tr></thead> <tbody><tr><td style="text-align:left;">weight</td> <td style="text-align:left;">笔刷宽度,支持表达式</td></tr> <tr><td style="text-align:left;">xfermoderow</td> <td style="text-align:left;">混合模式,参考 Image</td></tr> <tr><td style="text-align:left;">xfermoderow</td> <td style="text-align:left;">宽高,定义此笔刷能涂抹的区域</td></tr></tbody></table> <p>与图片混合功能搭配的示例:</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Wallpaper</span> <span class="token punctuation">/&gt;</span></span>                                                   // 调用系统壁纸,在这里是你手指擦过后露出的背景图
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Group</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">w</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1080<span class="token punctuation">&quot;</span></span> <span class="token attr-name">h</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1920<span class="token punctuation">&quot;</span></span> <span class="token attr-name">layered</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>            // 图片混合
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Image</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>fg.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>                           // fg.png是被擦的图片(高斯模糊+水珠雾气效果)
